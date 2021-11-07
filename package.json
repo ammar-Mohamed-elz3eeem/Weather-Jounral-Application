@@ -1,0 +1,29 @@
+{
+  "name": "weather-journal-app",
+  "version": "0.0.1",
+  "description": "Weather Journal Application to get the data From open Weather Website and show it in thr project UI",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application.git"
+  },
+  "keywords": [
+    "jounral",
+    "application",
+    "weather",
+    "weather",
+    "application",
+    "API",
+    "weather",
+    "app"
+  ],
+  "author": "Ammar Massoud",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application/issues"
+  },
+  "homepage": "https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application#readme"
+}
