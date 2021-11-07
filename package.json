@@ -4,7 +4,8 @@
   "description": "Weather Journal Application to get the data From open Weather Website and show it in thr project UI",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application/issues"
   },
-  "homepage": "https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application#readme"
+  "homepage": "https://github.com/ammar-Mohamed-elz3eeem/Weather-Jounral-Application#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }
