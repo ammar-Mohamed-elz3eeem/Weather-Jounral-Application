@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Journal</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="text-white">
+    <section class="form-sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="holder headline">Weather Journal App</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+            <form action="/add" method="post">
+              <div class="form-group mb-3">
+                <label for="zip">Enter Zipcode here</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="zip"
+                  placeholder="enter zip code here"
+                />
+              </div>
+              <div class="form-group mb-3">
+                <div class="holder feel">
+                  <label for="feelings">How are you feeling today?</label>
+                  <textarea
+                    class="myInput form-control"
+                    id="feelings"
+                    placeholder="Enter your feelings here"
+                    rows="9"
+                    cols="50"
+                    name="feelings"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <button class="btn btn-primary" id="generate" type="submit">
+                  Generate
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="entries" id="app">
+      <div class="row entry">
+        <div class="col-12">
+          <h2>Most Recent Entry</h2>
+        </div>
+      </div>
+      <div id="entryHolder">
+        <div class="row">
+          <div class="col-3">Date</div>
+          <div class="col" id="date"></div>
+        </div>
+        <div class="row">
+          <div class="col-3">Temp</div>
+          <div class="col" id="temp"></div>
+        </div>
+        <div class="row">
+          <div class="col-3">Content</div>
+          <div class="col" id="content"></div>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
