@@ -39,11 +39,7 @@ This project have been done using HTML, CSS, Bootstrap, NodeJS, Vanilla Javascri
 
 ## Technologies used in the Project
 
-I have used three main technologies in this project
-
-- HTML
-- CSS
-- Vanilla JavaScript
+I have used the NodeJS to make this project connect with external API and to be able to create routes and GET / POST Methods
 
 ## Author
 
