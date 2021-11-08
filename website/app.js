@@ -64,5 +64,5 @@ const updateUI = (date, data) => {
   const contentCont = document.getElementById("content");
   dateCont.innerHTML = date;
   tempCont.innerHTML = Math.floor(data.main.temp - 273) + " Celicus";
-  contentCont.innerHTML = data.weather[0].description;
+  contentCont.innerHTML = feelingTextarea.value;
 };
