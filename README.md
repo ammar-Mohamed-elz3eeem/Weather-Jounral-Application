@@ -1,8 +1,4 @@
-# Weather-Jounral-Application
-
-Weather Journal Application to get the data From open Weather Website and show it in thr project UI
-
-# Landing Page Project (Powered By Udacity)
+# Weather Jounral Application (Powered By Udacity)
 
 ## Table of Contents
 
@@ -15,19 +11,31 @@ Weather Journal Application to get the data From open Weather Website and show i
 
 ## Description
 
-This is a landing page project Made By Ammar Mohamed Fathallah, This project is a one page scrolling project
+Weather Journal Application to get the data From open Weather Website and show it in thr project UI
 
 ## Installition
 
-To be able to use this project in your site just upload the Index.html, css/style.css and js/app.js to your Public HTML Folder and go to your domain.com to be able to view the Landing page
+To be able to use this project in your site just upload the files in your site and once downloaded go to the project folder and open it with any code editor and open the terminal or Command line and go to the project folder using terminal / Command line.
+
+Once you are in the project folder using terminal enter the Command "npm install" after installing finishes you can enter "npm start" in the terminal and you it will open the page with the project in the browser ( if didn't open the browser you can navigate to your browser and enter the url "http://localhost:8080" )
+
+you will see the homepage with two Fields one for ZIP and another one for your feelings today, Once you enter your zip and your feelings The UI will update with the temperature in your city and the date of the day and the feelings you entered in the feelings field
 
 ## Project Files
 
-This project have been done using HTML, CSS and JavaScript, The main Files for This porject Are:
+This project have been done using HTML, CSS, Bootstrap, NodeJS, Vanilla Javascript and ExpressJS The main Files for This porject Are:
 
-- index.html
-- style.css (Inside /css Folder)
-- app.js (Inside /js Folder)
+- website folder
+
+-- app.js
+-- index.html
+-- style.css
+-- background.png
+
+- server.js
+- package.json
+- package-lock.json
+- README.md
 
 ## Technologies used in the Project
 
