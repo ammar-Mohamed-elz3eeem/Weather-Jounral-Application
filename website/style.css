@@ -1,0 +1,61 @@
+.entries {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+.entry {
+  background: rgba(59, 74, 107, 0.4);
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+
+body {
+  background: url("background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  font-size: 20px;
+}
+
+body:before {
+  content: "";
+  background-color: rgba(59, 74, 107, 0.4);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #f0d43a;
+  font-family: "Oswald", sans-serif;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #f0d43a;
+  font-family: "Oswald", sans-serif;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #f0d43a;
+  font-family: "Oswald", sans-serif;
+}
