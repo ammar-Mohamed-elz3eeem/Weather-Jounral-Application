@@ -1,7 +1,7 @@
 /**
  * Define the Variables for the URL of The POST/GET requests
  */
-const apiKey = "&appid=f50487e26bb3644b87e9fa884fea3f9e&units=metric";
+const apiKey = "&appid=<YOUR_API_KEY>&units=metric";
 const url = "https://api.openweathermap.org/data/2.5/weather?zip=";
 
 /**
@@ -10,6 +10,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const zipCode = document.getElementById("zip");
 const feelingTextarea = document.getElementById("feelings");
 const generateBtn = document.getElementById("generate");
+const errorDiv = document.getElementById("error-div");
 
 /**
  * onClick on the Submit button of the form performAction Function Will fire
@@ -23,27 +24,35 @@ generateBtn.addEventListener("click", performAction);
 function performAction(e) {
   e.preventDefault();
   const newZipCode = document.getElementById("zip").value;
-  let date = new Date();
-  let createdAt =
-    date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+  if (!/^\d+$/.test(newZipCode)) {
+    errorDiv.classList.remove("d-none");
+    errorDiv.classList.add("d-block");
+    errorDiv.innerHTML = "Invalid ZIP Code";
+  } else {
+    errorDiv.classList.add("d-none");
+    errorDiv.classList.remove("d-block");
+    let date = new Date();
+    let createdAt =
+      date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
 
-  getW(url + newZipCode + apiKey)
-    .then((data) => {
-      postW("/addRecord", {
-        date: createdAt,
-        ZipCode: newZipCode,
-        feelings: feelingTextarea.value,
-        data: data,
+    getW(url + newZipCode + apiKey)
+      .then((data) => {
+        postW("/addRecord", {
+          date: createdAt,
+          ZipCode: newZipCode,
+          feelings: feelingTextarea.value,
+          data: data,
+        });
+      })
+      .then(() => {
+        getW("/all").then((data) => {
+          updateUI(data);
+        });
+      })
+      .catch((err) => {
+        console.log("error: " + err);
       });
-    })
-    .then(() => {
-      getW("/all").then((data) => {
-        updateUI(data);
-      });
-    })
-    .catch((err) => {
-      console.log("error: " + err);
-    });
+  }
 }
 
 /**
