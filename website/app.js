@@ -38,7 +38,6 @@ function performAction(e) {
     })
     .then(() => {
       getW("/all").then((data) => {
-        console.log(data);
         updateUI(data);
       });
     })
@@ -65,7 +64,6 @@ const postW = async function (url, data) {
   });
   try {
     let newData = await res.json();
-    console.log(newData);
     return newData;
   } catch (err) {
     console.log("Error: " + err);
@@ -82,7 +80,6 @@ const getW = async function (url) {
   const res = await fetch(url);
   try {
     const newData = await res.json();
-    console.log(newData);
     return newData;
   } catch (e) {
     console.log("error: " + e);

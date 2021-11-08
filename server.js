@@ -1,6 +1,7 @@
 /**
  * require main packages
  */
+const port = 8080;
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -52,6 +53,6 @@ app.get("/all", (req, res) => {
 /**
  * Listen for The server
  */
-app.listen(8080, () => {
-  console.log("Server is Running Now :)");
+app.listen(port, () => {
+  console.log(`Server is Running Now on port: ${port}`);
 });
