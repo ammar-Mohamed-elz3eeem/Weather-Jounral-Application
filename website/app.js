@@ -1,15 +1,15 @@
 /**
  * Define the Variables for the URL of The POST/GET requests
  */
-let apiKey = "&appid=f50487e26bb3644b87e9fa884fea3f9e";
-let url = "https://api.openweathermap.org/data/2.5/weather?zip=";
+const apiKey = "&appid=f50487e26bb3644b87e9fa884fea3f9e&units=metric";
+const url = "https://api.openweathermap.org/data/2.5/weather?zip=";
 
 /**
  * Define the Variables for the DOM elements to Send the Request
  */
-let zipCode = document.getElementById("zip");
-let feelingTextarea = document.getElementById("feelings");
-let generateBtn = document.getElementById("generate");
+const zipCode = document.getElementById("zip");
+const feelingTextarea = document.getElementById("feelings");
+const generateBtn = document.getElementById("generate");
 
 generateBtn.addEventListener("click", performAction);
 
@@ -18,16 +18,26 @@ function performAction(e) {
   const newZipCode = document.getElementById("zip").value;
   let date = new Date();
   let createdAt =
-    date.getMonth() + "/" + date.getDay() + "/" + date.getFullYear();
+    date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
 
-  console.log(newZipCode);
-  getW(url + newZipCode + apiKey).then((data) => {
-    updateUI(createdAt, data);
-  });
-  postW("/addRecord", {
-    ZipCode: zipCode.value,
-    feelings: feelingTextarea.value,
-  });
+  getW(url + newZipCode + apiKey)
+    .then((data) => {
+      postW("/addRecord", {
+        date: createdAt,
+        ZipCode: newZipCode,
+        feelings: feelingTextarea.value,
+        data: data,
+      });
+    })
+    .then(() => {
+      getW("/all").then((data) => {
+        console.log(data);
+        updateUI(data);
+      });
+    })
+    .catch((err) => {
+      console.log("error: " + err);
+    });
 }
 
 const postW = async function (url, data) {
@@ -58,11 +68,11 @@ const getW = async function (url) {
     console.log("error: " + e);
   }
 };
-const updateUI = (date, data) => {
+const updateUI = (projectData) => {
   const dateCont = document.getElementById("date");
   const tempCont = document.getElementById("temp");
   const contentCont = document.getElementById("content");
-  dateCont.innerHTML = date;
-  tempCont.innerHTML = Math.floor(data.main.temp - 273) + " Celicus";
-  contentCont.innerHTML = feelingTextarea.value;
+  dateCont.innerHTML = projectData.date;
+  tempCont.innerHTML = Math.floor(projectData.data.main.temp) + " Celicus";
+  contentCont.innerHTML = projectData.feelings;
 };

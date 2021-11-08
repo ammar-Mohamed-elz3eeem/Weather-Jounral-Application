@@ -22,17 +22,7 @@ const jquery = path.resolve(__dirname, "node_modules/jquery/dist");
  * the Middlewares in the Weather application
  */
 
-app.use(
-  cors(
-    {
-      origin: "http://localhost:8080",
-    },
-    (err, data, next) => {
-      if (err) console.log(err);
-      else console.log(data), next();
-    }
-  )
-);
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(pathFile));
@@ -42,20 +32,19 @@ app.use(express.static(jquery));
 /**
  * Setting the Project Data Variable
  */
-const projectData = [];
+const projectData = {};
 
 /**
  *  Post and Get Routes
  */
 
 app.post("/addRecord", (req, res) => {
-  projectData.push(req.body);
+  Object.assign(projectData, req.body);
   console.log(projectData);
   return projectData;
 });
 
 app.get("/all", (req, res) => {
-  console.log(projectData);
   res.send(projectData);
 });
 
