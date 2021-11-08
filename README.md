@@ -27,10 +27,10 @@ This project have been done using HTML, CSS, Bootstrap, NodeJS, Vanilla Javascri
 
 - website folder
 
--- app.js
--- index.html
--- style.css
--- background.png
+  - app.js
+  - index.html
+  - style.css
+  - background.png
 
 - server.js
 - package.json
