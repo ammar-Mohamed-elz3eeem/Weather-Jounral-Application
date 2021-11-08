@@ -44,5 +44,3 @@ Ammar Mohamed
 ## License
 
 MIT License
-
-> > > > > > > master
