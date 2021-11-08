@@ -11,8 +11,15 @@ const zipCode = document.getElementById("zip");
 const feelingTextarea = document.getElementById("feelings");
 const generateBtn = document.getElementById("generate");
 
+/**
+ * onClick on the Submit button of the form performAction Function Will fire
+ */
 generateBtn.addEventListener("click", performAction);
 
+/**
+ * Define performAction Function Which Send data to The server and Request the Data from there
+ * @param {object} e => the Event Object for Button Click
+ */
 function performAction(e) {
   e.preventDefault();
   const newZipCode = document.getElementById("zip").value;
@@ -40,6 +47,13 @@ function performAction(e) {
     });
 }
 
+/**
+ * Function For posting the data into the POST route of the server
+ *
+ * @param {str} url => The url of the post route from the server.js File
+ * @param {obj} data => The Data we need to pass when sending the POST request to the server
+ * @returns {object} newData => The Object which contains the data from the API Calling
+ */
 const postW = async function (url, data) {
   const res = await fetch(url, {
     method: "POST",
@@ -58,6 +72,12 @@ const postW = async function (url, data) {
   }
 };
 
+/**
+ * Function For retrieve the data from the GET route of the server
+ *
+ * @param {str} url => The url of the get route from the server.js File
+ * @returns {object} newData => The Object which contains the data from the API Calling + The Data from the form in the index file
+ */
 const getW = async function (url) {
   const res = await fetch(url);
   try {
@@ -68,6 +88,13 @@ const getW = async function (url) {
     console.log("error: " + e);
   }
 };
+
+/**
+ * Function To Update the UI with the information coming from the GET route of the server
+ *
+ * @param {obj} projectData => The Data we need to Update The UI with
+ * @returns {null}
+ */
 const updateUI = (projectData) => {
   const dateCont = document.getElementById("date");
   const tempCont = document.getElementById("temp");

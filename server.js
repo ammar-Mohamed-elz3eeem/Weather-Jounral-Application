@@ -41,7 +41,8 @@ const projectData = {};
 app.post("/addRecord", (req, res) => {
   Object.assign(projectData, req.body);
   console.log(projectData);
-  return projectData;
+  res.send(projectData);
+  //   return projectData;
 });
 
 app.get("/all", (req, res) => {
