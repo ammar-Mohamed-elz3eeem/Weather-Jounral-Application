@@ -16,8 +16,14 @@ generateBtn.addEventListener("click", performAction);
 function performAction(e) {
   e.preventDefault();
   const newZipCode = document.getElementById("zip").value;
+  let date = new Date();
+  let createdAt =
+    date.getMonth() + "/" + date.getDay() + "/" + date.getFullYear();
+
   console.log(newZipCode);
-  getW(url + newZipCode + apiKey);
+  getW(url + newZipCode + apiKey).then((data) => {
+    updateUI(createdAt, data);
+  });
   postW("/addRecord", {
     ZipCode: zipCode.value,
     feelings: feelingTextarea.value,
@@ -51,4 +57,12 @@ const getW = async function (url) {
   } catch (e) {
     console.log("error: " + e);
   }
+};
+const updateUI = (date, data) => {
+  const dateCont = document.getElementById("date");
+  const tempCont = document.getElementById("temp");
+  const contentCont = document.getElementById("content");
+  dateCont.innerHTML = date;
+  tempCont.innerHTML = Math.floor(data.main.temp - 273) + " Celicus";
+  contentCont.innerHTML = data.weather[0].description;
 };
